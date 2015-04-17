@@ -1,8 +1,7 @@
 setwd("/home/matteo/Documenti/VU/Data Mining/Assigment 1/Titanic/")
-data_orig <- read.csv("train.csv", header=TRUE)
+data <- read.csv("train.csv", header=TRUE)
 
 ## preprocessing part
-data <- data_orig
 data <- subset(data, select= -PassengerId)
 data <- subset(data, select= -Name)
 data <- subset(data, select= -Cabin)
