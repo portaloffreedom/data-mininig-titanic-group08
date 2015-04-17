@@ -17,8 +17,13 @@ median_age <- median(data$Age, na.rm = TRUE)
 data$Age[is.na(data$Age)] <- median_age
 
 #normalize data
+mean_age = mean(data$Age)
+sd_age = sd(data$Age)
+
 data$Pclass<-data$Pclass-2
 data$Sex=ifelse(data$Sex=='female', 1,-1)
-data$Age<-(data$Age-mean_all)/sd_all 
+data$Age<-(data$Age-mean_age)/sd_age 
 data$Fare<-data$Fare/max(data$Fare)
 data$relatives<-data$relatives/max(data$relatives)
+
+
