@@ -22,10 +22,10 @@ analize <- function(train, fwd) {
     target_train <- train$Survived
     target_test <- test$Survived
     
-    train_x <- c(train$Sex, train$Age, train$Fare, train$relatives);
-    test_x <- c(test$Sex, test$Age, test$Fare, test$relatives);
+    train_x <- rbind(train$Sex, train$Age, train$Fare, train$relatives);
+    test_x <- rbind(test$Sex, test$Age, test$Fare, test$relatives);
     
-    v <- train(train_x)
+    v <- train(train_x, target_train)
     
     result_train <- fwd(v, train_x)
     result_test <- fwd(v, test_x)
