@@ -34,7 +34,10 @@ analize <- function(train, fwd) {
     error_test[i] <- (summed_squared_difference(result_test, target_test))
   }
   
-  print(mean(error_train))
-  print(mean(error_test))
+  error = c(mean(error_train), mean(error_test))
+  print(error[1]) #mean(error_train)
+  print(error[2]) #mean(error_test)
+  
+  return(error)
 }
 
