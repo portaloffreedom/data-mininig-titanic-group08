@@ -2,7 +2,7 @@
 
 summed_squared_difference <- function(result,target) {
   difference <- result-target
-  return(sum(difference*difference))
+  return(mean(difference*difference))
 }
 
 analize <- function(train, fwd) {
@@ -30,8 +30,8 @@ analize <- function(train, fwd) {
     result_train <- fwd(v, train_x)
     result_test <- fwd(v, test_x)
     
-    error_train[i] <- summed_squared_difference(result_train, target_train)
-    error_test[i] <- summed_squared_difference(result_test, target_test)
+    error_train[i] <- (summed_squared_difference(result_train, target_train))
+    error_test[i] <- (summed_squared_difference(result_test, target_test))
   }
   
   print(mean(error_train))
