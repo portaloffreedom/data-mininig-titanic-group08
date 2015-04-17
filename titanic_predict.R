@@ -16,14 +16,14 @@ analize <- function(train, fwd) {
     
   for (i in 1:cross_sections) {
     selection <- crossSelection == i
-    train <- data[!crossSelection,]
-    test <- data[crossSelection,]
+    train <- data[!selection,]
+    test <- data[selection,]
     
     target_train <- train$Survived
     target_test <- test$Survived
     
-    train_x <- rbind(train$Sex, train$Age, train$Fare, train$relatives);
-    test_x <- rbind(test$Sex, test$Age, test$Fare, test$relatives);
+    train_x <- cbind(train$Sex, train$Age, train$Fare, train$relatives);
+    test_x <- cbind(test$Sex, test$Age, test$Fare, test$relatives);
     
     v <- train(train_x, target_train)
     
