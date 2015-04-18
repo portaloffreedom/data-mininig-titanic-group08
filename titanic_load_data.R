@@ -1,4 +1,4 @@
-#setwd("C:/Users/Mirka/Desktop/datamining/")
+#setwd("~/GitHub/data-mininig-titanic-group08")
 #setwd("/home/matteo/Documenti/VU/Data Mining/Assigment 1/Titanic/")
 data <- read.csv("train.csv", header=TRUE)
 
