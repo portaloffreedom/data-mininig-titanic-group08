@@ -1,4 +1,5 @@
 #setwd("/home/matteo/Documenti/VU/Data Mining/Assigment 1/Titanic/")
+source("titanic_load_data.R")
 
 summed_squared_difference <- function(result,target) {
   difference <- result-target
@@ -6,7 +7,7 @@ summed_squared_difference <- function(result,target) {
 }
 
 analize <- function(train, fwd) {
-  source("titanic_load_data.R")
+  data <- loadData("train.csv")
   
   cross_sections <- 10
   crossSelection <- sample(1:cross_sections, size=nrow(data), replace=TRUE)
