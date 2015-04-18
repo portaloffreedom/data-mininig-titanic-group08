@@ -6,14 +6,15 @@ forward=function(model, data){
   return(predict_data)
 }
 
-for (i in 2:6) {
+i_values <- 2:9
+for (i in i_values) {
   train=function(data, target){
   model <- mlp(   x=data,                                          #input data for training
                   y=target,                                          #output data (targets) for training
                   size=i,                                         #number of neurons in the hidden layer
                   learnFunc="Std_Backpropagation",               #type of learning
                   learnFuncParams=c(0.1),                         #paramenters of the learning function (eta)
-                  maxit=200)                                     #maximum number of iterations
+                  maxit=500)                                     #maximum number of iterations
                                             
   return(model)
   }
@@ -21,6 +22,7 @@ for (i in 2:6) {
   errors <- rbind(errors, error)
   
 }
-plot(errors[,1],type="l")
-lines(errors[,2],col="red")
+plot(c(min(i_values),max(i_values)), c(min(errors), max(errors)) ,type="n")
+lines(i_values, errors[,1], col="black")
+lines(i_values, errors[,2], col="red")
 
